@@ -3,20 +3,20 @@
 
 <hr>
 
-<form>
+<form [formGroup]="miFormulario" (ngSubmit)="guardar()">
     <!--Radios-->
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Genero</label>
         <div class="col-sm-9">
 
             <div class="form-check">
-                <input class="form-check-input" type="radio" value="M" name="radioGenero" id="flexRadioDefault1">
+                <input class="form-check-input" type="radio" value="M" formControlName="genero" id="flexRadioDefault1">
                 <label class="form-check-label" for="flexRadioDefault1">
                   Masculino
             </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" value="F" name="radioGenero" id="flexRadioDefault2">
+                <input class="form-check-input" type="radio" value="F" formControlName="genero" id="flexRadioDefault2">
                 <label class="form-check-label" for="flexRadioDefault2">
               Femenino
             </label>
@@ -30,7 +30,7 @@
         <label class="col-sm-3 col-form-label">Notificaciones</label>
         <div class="col-sm-9">
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                <input class="form-check-input" formControlName="notificaciones" type="checkbox" id="flexSwitchCheckChecked">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Quiero recibir notificaciones</label>
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="col-sm-9">
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" formControlName="condiciones" type="checkbox" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
               Terminos y condiciones
             </label>
@@ -62,7 +62,7 @@
 </form>
 
 
-<!-- <h4>Valor Formulario</h4>
+<h4>Valor Formulario</h4>
 
 <pre>{{miFormulario.value|json}}</pre>
 
@@ -71,8 +71,8 @@
 <h5>Valid:</h5>
 <pre>{{miFormulario.valid}}</pre>
 
-<h5>Valid:</h5>
-<pre>{{miFormulario.valid}}</pre>
+<h5>Persona:</h5>
+<pre>{{persona|json}}</pre>
 
 <h5>Condiciones:</h5>
-<pre></pre> -->
+<pre></pre>
