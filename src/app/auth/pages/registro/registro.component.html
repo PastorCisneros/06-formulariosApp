@@ -1,0 +1,72 @@
+<h2>Validaciones reactivas</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="submitFormulario()">
+            <!--Nombre-->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre del usuario">
+                <span class="form-text text-danger" *ngIf="campoNoValido('nombre')">Debe ser en formato de nombre y apellido</span>
+            </div>
+
+            <!--Email-->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email del usuario">
+                <span class="form-text text-danger" *ngIf="campoNoValido('email')">El Correo es obligatorio</span>
+
+            </div>
+
+            <!--Username-->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Username</label>
+                <input type="text" class="form-control" formControlName="username" placeholder="Nombre codigo del usuario">
+            </div>
+
+            <!--Password-->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password de su usuario">
+                <span class="form-text text-danger" *ngIf="campoNoValido('password')">La contraseña debe ser mayor de 6</span>
+
+            </div>
+
+            <!--Password2-->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Confirmar</label>
+                <input type="password" class="form-control" formControlName="password2" placeholder="Confirmar la contraseña">
+                <span class="form-text text-danger" *ngIf="campoNoValido('password2')">Las contraseñas deben ser iguales</span>
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary float-end">
+                  Crear
+                </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<h2> Form Valid: {{miFormulario.valid}}</h2>
+
+<h6>Nombre</h6>
+<pre>{{miFormulario.controls['nombre']?.errors|json}}</pre>
+<hr>
+<h6>Nombre</h6>
+<pre>{{miFormulario.controls['email']?.errors|json}}</pre>
+<hr>
+<h6>Username</h6>
+<pre>{{miFormulario.controls['username']?.errors|json}}</pre>
+
+<hr>
+<h6>Password</h6>
+<pre>{{miFormulario.controls['password']?.errors|json}}</pre>
+
+<hr>
+<h6>Confirmar</h6>
+<pre>{{miFormulario.controls['password2']?.errors|json}}</pre>
